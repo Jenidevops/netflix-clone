@@ -1,4 +1,7 @@
-Netflix Clone 🎬
+<h1 align="center">🎬 Netflix Clone</h1> <p align="center"> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Vite-563D7C?style=for-the-badge&logo=vite&logoColor=yellow" /> <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" /> <img src="https://img.shields.io/badge/Responsive-Design-1abc9c?style=for-the-badge" /> </p>
+
+
+✨ Overview 🎬
 
 A fully responsive Netflix UI clone built with React, Vite, and Tailwind CSS.
 This project demonstrates expertise in modern frontend development, component-based architecture, responsive design, and reusable, scalable React components. It replicates Netflix’s interface and core functionality while showcasing clean code, modular design, and smooth user experience.
@@ -21,17 +24,8 @@ Fast Development: Powered by Vite for lightning-fast development and builds
 
 Tailwind CSS: Utility-first styling ensures consistency and rapid UI iteration
 
-🛠️ Technology Stack
-
-Frontend: React 18, Vite
-
-Styling: Tailwind CSS, PostCSS
-
-Routing: React Router DOM
-
-State Management: React useState
-
-Build Tools: Vite, PostCSS
+🛠️ Tech Stack
+<p> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Vite-563D7C?style=flat-square&logo=vite&logoColor=yellow" /> <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" /> <img src="https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" /> </p>
 
 📁 Project Structure
 netflix-clone/
@@ -67,13 +61,9 @@ FAQ accordion & promotional sections
 
 SignUp (/signup)
 
-3-step registration:
-
-Choose plan benefits
+registration:
 
 Enter email & password
-
-Select subscription plan
 
 Browse (/browse)
 
