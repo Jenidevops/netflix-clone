@@ -4,13 +4,17 @@ import Hero from '../components/Hero'
 import ContentRow from '../components/ContentRow'
 import Modal from '../components/Modal'
 import Footer from '../components/Footer'
+import SubscriptionManager from '../components/SubscriptionManager'
 import { categories, heroContent } from '../data/mockData'
+import { useSubscription } from '../context/SubscriptionContext'
 
 export default function Browse() {
   const [selectedContent, setSelectedContent] = useState(null)
   const [myList, setMyList] = useState([])
   const [currentHeroContent, setCurrentHeroContent] = useState(heroContent)
+  const [showSubscriptionManager, setShowSubscriptionManager] = useState(false)
   const sectionRefs = useRef({})
+  const { isSubscriptionActive } = useSubscription()
 
   const toggleMyList = (item) => {
     setMyList(prev => 
@@ -76,8 +80,27 @@ export default function Browse() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      <Navbar showLinks={true} onNavClick={handleNavClick} />
+      <Navbar 
+        showLinks={true} 
+        onNavClick={handleNavClick} 
+        onManageSubscription={() => setShowSubscriptionManager(true)}
+      />
       <Hero content={currentHeroContent} />
+      
+      {/* Subscription warning for inactive users */}
+      {!isSubscriptionActive && (
+        <div className="bg-red-600 text-white p-4 text-center">
+          <p className="font-medium">
+            Your subscription is not active. Please update your payment method or renew your subscription to continue watching.
+          </p>
+          <button 
+            onClick={() => setShowSubscriptionManager(true)}
+            className="mt-2 px-4 py-2 bg-white text-red-600 rounded hover:bg-gray-100"
+          >
+            Manage Subscription
+          </button>
+        </div>
+      )}
       
       <div className="relative -mt-32 z-20 space-y-12 pb-20">
         {categories.map((category) => (
@@ -101,6 +124,11 @@ export default function Browse() {
         onClose={() => setSelectedContent(null)}
         isInMyList={selectedContent ? isInMyList(selectedContent.id) : false}
         toggleMyList={toggleMyList}
+      />
+
+      <SubscriptionManager 
+        isOpen={showSubscriptionManager}
+        onClose={() => setShowSubscriptionManager(false)}
       />
 
       <Footer />

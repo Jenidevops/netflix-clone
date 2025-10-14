@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import heroimage from '../images/heroimage.png'
 
 export default function SignUp({ setIsAuthenticated }) {
   const location = useLocation()
@@ -23,8 +24,11 @@ export default function SignUp({ setIsAuthenticated }) {
     e.preventDefault()
     // Simple mock authentication - accept any email/password
     if (formData.email && formData.password.length >= 4) {
+      // Set authentication in localStorage and state
+      localStorage.setItem('netflix-authenticated', 'true')
       setIsAuthenticated(true)
-      navigate('/browse')
+      // Redirect to subscription plans instead of directly to browse
+      navigate('/subscription-plans', { state: { email: formData.email } })
     } else {
       alert('Please enter a valid email and password (min 4 characters)')
     }
@@ -35,7 +39,7 @@ export default function SignUp({ setIsAuthenticated }) {
       {/* Background with overlay */}
       <div className="fixed inset-0 z-0">
         <img
-          src="src/images/heroimage.png"
+          src={heroimage}
           alt="Netflix Background"
           className="w-full h-full object-cover brightness-125"
         />

@@ -1,25 +1,40 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import GetStarted from './pages/GetStarted'
 import SignUp from './pages/SignUp'
 import Browse from './pages/Browse'
+import SubscriptionPlans from './pages/SubscriptionPlans'
+import PaymentMethod from './pages/PaymentMethod'
+import PaymentConfirmation from './pages/PaymentConfirmation'
+import { SubscriptionProvider } from './context/SubscriptionContext'
+import { ProtectedRoute } from './components/ProtectedRoute'
 import { useState } from 'react'
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true) // Set to true to stay on home/browse on refresh
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    // Initialize from localStorage
+    return localStorage.getItem('netflix-authenticated') === 'true'
+  });
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<GetStarted />} />
-        <Route path="/signup" element={<SignUp setIsAuthenticated={setIsAuthenticated} />} />
-        <Route 
-          path="/browse" 
-          element={
-            isAuthenticated ? <Browse /> : <Navigate to="/signup" replace />
-          } 
-        />
-      </Routes>
-    </Router>
+    <SubscriptionProvider>
+      <Router basename="/netflix-clone">
+        <Routes>
+          <Route path="/" element={<GetStarted />} />
+          <Route path="/signup" element={<SignUp setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/subscription-plans" element={<SubscriptionPlans />} />
+          <Route path="/payment-method" element={<PaymentMethod />} />
+          <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
+          <Route
+            path="/browse"
+            element={
+              <ProtectedRoute>
+                <Browse />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </SubscriptionProvider>
   )
 }
 

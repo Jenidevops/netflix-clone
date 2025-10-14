@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
-import { Search, Bell, ChevronDown, User, Settings, LogOut } from 'lucide-react'
+import { Search, Bell, ChevronDown, User, Settings, LogOut, CreditCard } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
+import netflixLogo from '../images/logo/netflixLogo.png'
 
-export default function Navbar({ showLinks = true, onNavClick }) {
+export default function Navbar({ showLinks = true, onNavClick, onManageSubscription }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const navigate = useNavigate()
@@ -33,7 +34,7 @@ export default function Navbar({ showLinks = true, onNavClick }) {
       <div className="flex items-center justify-between px-4 md:px-12 py-4">
         <div className="flex items-center space-x-8">
           <Link to="/">
-            <img src="/src/images/logo/netflixLogo.png" alt="Netflix Logo" style={{ width: '167px', height: '45px', filter: 'brightness(1.2)' }} className="cursor-pointer" />
+            <img src={netflixLogo} alt="Netflix Logo" style={{ width: '167px', height: '45px', filter: 'brightness(1.2)' }} className="cursor-pointer" />
           </Link>
           {showLinks && (
             <div className="hidden md:flex space-x-6 text-sm">
@@ -74,12 +75,24 @@ export default function Navbar({ showLinks = true, onNavClick }) {
                       <User size={16} />
                       <span>Profile</span>
                     </li>
+                    <li 
+                      className="px-4 py-2 hover:bg-gray-700 flex items-center space-x-2 cursor-pointer"
+                      onClick={() => {
+                        setShowDropdown(false)
+                        onManageSubscription && onManageSubscription()
+                      }}
+                    >
+                      <CreditCard size={16} />
+                      <span>Manage Subscription</span>
+                    </li>
                     <li className="px-4 py-2 hover:bg-gray-700 flex items-center space-x-2 cursor-pointer">
                       <Settings size={16} />
                       <span>Settings</span>
                     </li>
                     <li className="px-4 py-2 hover:bg-gray-700 flex items-center space-x-2 cursor-pointer" onClick={() => {
-                      // Clear any user session or auth tokens here if applicable
+                      // Clear authentication
+                      localStorage.removeItem('netflix-authenticated')
+                      localStorage.removeItem('netflix-subscription')
                       navigate('/')
                     }}>
                       <LogOut size={16} />

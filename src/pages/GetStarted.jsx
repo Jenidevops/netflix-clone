@@ -3,6 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import { ChevronRight, Tv, Download, Users, Smartphone, ChevronLeft, ChevronRight as ChevronRightIcon, X, Play, Plus, ThumbsUp } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import heroimage from '../images/heroimage.png'
+import wednesdayImg from '../images/top10inUStoday/wednesday.png'
+import aliceinwonderlandImg from '../images/top10inUStoday/aliceinwonderland.png'
+import beautyinblackImg from '../images/top10inUStoday/beautyinblack.png'
+import blackrabbitImg from '../images/top10inUStoday/BlackRabbit.png'
+import happygilmore2Img from '../images/top10inUStoday/HappyGilmore2.png'
+import kpophuntersImg from '../images/top10inUStoday/kpophunters.png'
+import ncisImg from '../images/top10inUStoday/ncis.png'
+import nepeeceImg from '../images/top10inUStoday/nepeece.png'
+import ruthboazImg from '../images/top10inUStoday/ruth&boaz.png'
+import unknownnumbersImg from '../images/top10inUStoday/unknownnumbers.png'
 
 export default function GetStarted() {
   const [email, setEmail] = useState('')
@@ -18,16 +29,16 @@ export default function GetStarted() {
   }
 
   const top10Movies = [
-    { id: 7, title: 'Wednesday', image: '/src/images/top10inUStoday/wednesday.png', rank: 1, match: 96, year: 2024, rating: 'TV-14', duration: '1 Season' },
-    { id: 8, title: 'Alice in Wonderland', image: '/src/images/top10inUStoday/Aliceinwonderland.png', rank: 2, match: 94, year: 2023, rating: 'TV-MA', duration: '2 Seasons' },
-    { id: 9, title: 'Beauty in Black', image: '/src/images/top10inUStoday/Beautyinblack.png', rank: 3, match: 88, year: 2024, rating: 'TV-MA', duration: '4 Seasons' },
-    { id: 10, title: 'Black Rabbit', image: '/src/images/top10inUStoday/BlackRabbit.png', rank: 4, match: 93, year: 2023, rating: 'TV-MA', duration: '4 Seasons' },
-    { id: 11, title: 'Happy Gilmore 2', image: '/src/images/top10inUStoday/HappyGilmore2.png', rank: 5, match: 90, year: 2023, rating: 'TV-MA', duration: '3 Seasons' },
-    { id: 12, title: 'Kpop Hunters', image: '/src/images/top10inUStoday/Kpophunters.png', rank: 6, match: 99, year: 2024, rating: 'TV-MA', duration: '1 Season' },
-    { id: 13, title: 'NCIS', image: '/src/images/top10inUStoday/NCIS.png', rank: 7, match: 95, year: 2023, rating: 'TV-14', duration: '20 Seasons' },
-    { id: 14, title: 'Nepeece', image: '/src/images/top10inUStoday/Nepeece.png', rank: 8, match: 92, year: 2024, rating: 'TV-MA', duration: '1 Season' },
-    { id: 15, title: 'Ruth & Boaz', image: '/src/images/top10inUStoday/Ruth&boaz.png', rank: 9, match: 89, year: 2023, rating: 'TV-MA', duration: '1 Season' },
-    { id: 16, title: 'Unknown Numbers', image: '/src/images/top10inUStoday/Unknownnumbers.png', rank: 10, match: 91, year: 2024, rating: 'TV-MA', duration: '1 Season' },
+    { id: 7, title: 'Wednesday', image: wednesdayImg, rank: 1, match: 96, year: 2024, rating: 'TV-14', duration: '1 Season' },
+    { id: 8, title: 'Alice in Wonderland', image: aliceinwonderlandImg, rank: 2, match: 94, year: 2023, rating: 'TV-MA', duration: '2 Seasons' },
+    { id: 9, title: 'Beauty in Black', image: beautyinblackImg, rank: 3, match: 88, year: 2024, rating: 'TV-MA', duration: '4 Seasons' },
+    { id: 10, title: 'Black Rabbit', image: blackrabbitImg, rank: 4, match: 93, year: 2023, rating: 'TV-MA', duration: '4 Seasons' },
+    { id: 11, title: 'Happy Gilmore 2', image: happygilmore2Img, rank: 5, match: 90, year: 2023, rating: 'TV-MA', duration: '3 Seasons' },
+    { id: 12, title: 'Kpop Hunters', image: kpophuntersImg, rank: 6, match: 99, year: 2024, rating: 'TV-MA', duration: '1 Season' },
+    { id: 13, title: 'NCIS', image: ncisImg, rank: 7, match: 95, year: 2023, rating: 'TV-14', duration: '20 Seasons' },
+    { id: 14, title: 'Nepeece', image: nepeeceImg, rank: 8, match: 92, year: 2024, rating: 'TV-MA', duration: '1 Season' },
+    { id: 15, title: 'Ruth & Boaz', image: ruthboazImg, rank: 9, match: 89, year: 2023, rating: 'TV-MA', duration: '1 Season' },
+    { id: 16, title: 'Unknown Numbers', image: unknownnumbersImg, rank: 10, match: 91, year: 2024, rating: 'TV-MA', duration: '1 Season' },
   ]
 
   const scrollCarousel = (direction) => {
@@ -45,7 +56,7 @@ export default function GetStarted() {
       <div className="relative h-screen">
         <div className="absolute inset-0">
           <img
-            src="/src/images/heroimage.png"
+            src={heroimage}
             alt="Netflix Background"
             className="w-full h-full object-cover brightness-110"
           />

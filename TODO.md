@@ -1,0 +1,8 @@
+- [x] Import netflixLogo in Navbar.jsx
+- [x] Update Navbar.jsx to use imported logo
+- [x] Import heroimage in SignUp.jsx
+- [x] Update SignUp.jsx to use imported heroimage
+- [x] Import heroimage in GetStarted.jsx
+- [x] Update GetStarted.jsx hero section to use imported heroimage
+- [x] Import all top10 images in GetStarted.jsx
+- [x] Update top10Movies array in GetStarted.jsx to use imported images
