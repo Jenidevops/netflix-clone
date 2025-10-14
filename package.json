@@ -9,7 +9,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "vercel-build": "vite build",
+    "deploy:vercel": "vercel --prod"
   },
   "dependencies": {
     "lucide-react": "^0.263.1",

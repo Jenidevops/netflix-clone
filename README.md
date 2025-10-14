@@ -72,7 +72,10 @@ A fully responsive Netflix clone built with React, Vite, and Tailwind CSS. This 
    - Start with the landing page and explore the full subscription flow!
 
 ### 🌐 Live Demo
-Visit the live demo: [Netflix Clone Demo](https://jenidevops.github.io/netflix-clone/)
+- **Primary (Vercel)**: [https://netflix-clone-jidygathv-jenifer-nirmal-rajs-projects.vercel.app](https://netflix-clone-jidygathv-jenifer-nirmal-rajs-projects.vercel.app)
+- **Mirror (GitHub Pages)**: [https://jenidevops.github.io/netflix-clone/](https://jenidevops.github.io/netflix-clone/)
+
+> 🚀 **Vercel deployment offers better performance and automatic updates on every push!**
 
 ## 📁 Project Structure
 ```
